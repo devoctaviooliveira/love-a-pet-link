@@ -68,54 +68,58 @@ export function PetCard({ pet, showActions = false, onEdit, onDelete }: PetCardP
         </div>
       </CardContent>
 
-      <CardFooter className="p-4 pt-0 space-y-2">
-        <div className="flex space-x-2 w-full">
+      <CardFooter className="p-3 pt-0 space-y-2">
+        <div className="flex gap-1.5 w-full">
           <Button 
             variant="outline" 
             size="sm" 
-            className="flex-1"
+            className="flex-1 text-xs px-2 py-1.5 h-auto min-w-0"
             onClick={handleWhatsApp}
             aria-label={`Enviar WhatsApp sobre ${pet.name}`}
           >
-            <MessageCircle className="h-4 w-4 mr-1" />
-            WhatsApp
+            <MessageCircle className="h-3 w-3 mr-1 flex-shrink-0" />
+            <span className="truncate">WhatsApp</span>
           </Button>
           
           <Button 
             variant="outline" 
             size="sm" 
-            className="flex-1"
+            className="flex-1 text-xs px-2 py-1.5 h-auto min-w-0"
             onClick={handleEmail}
             aria-label={`Enviar email sobre ${pet.name}`}
           >
-            <Mail className="h-4 w-4 mr-1" />
-            Email
+            <Mail className="h-3 w-3 mr-1 flex-shrink-0" />
+            <span className="truncate">Email</span>
           </Button>
         </div>
 
-        <Link to={`/pets/${pet.id}`} className="w-full">
-          <Button variant="default" size="sm" className="w-full shadow-button">
+        <Link to={`/pets/${pet.id}`} className="w-full block">
+          <Button 
+            variant="default" 
+            size="sm" 
+            className="w-full shadow-button text-xs px-3 py-2 h-auto"
+          >
             Ver Detalhes
           </Button>
         </Link>
 
         {showActions && (
-          <div className="flex space-x-2 w-full">
+          <div className="flex gap-1.5 w-full">
             <Button 
               variant="secondary" 
               size="sm" 
-              className="flex-1"
+              className="flex-1 text-xs px-2 py-1.5 h-auto min-w-0"
               onClick={() => onEdit?.(pet.id)}
             >
-              Editar
+              <span className="truncate">Editar</span>
             </Button>
             <Button 
               variant="destructive" 
               size="sm" 
-              className="flex-1"
+              className="flex-1 text-xs px-2 py-1.5 h-auto min-w-0"
               onClick={() => onDelete?.(pet.id)}
             >
-              Excluir
+              <span className="truncate">Excluir</span>
             </Button>
           </div>
         )}
