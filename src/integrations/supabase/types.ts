@@ -14,7 +14,110 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      institutions: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          name: string
+          updated_at: string
+          user_id: string
+          whatsapp: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          name: string
+          updated_at?: string
+          user_id: string
+          whatsapp: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          name?: string
+          updated_at?: string
+          user_id?: string
+          whatsapp?: string
+        }
+        Relationships: []
+      }
+      pets: {
+        Row: {
+          age: number
+          breed: string
+          created_at: string
+          description: string | null
+          id: string
+          image_url: string | null
+          institution_id: string
+          name: string
+          updated_at: string
+          user_id: string
+          vaccines: string[] | null
+        }
+        Insert: {
+          age: number
+          breed: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          institution_id: string
+          name: string
+          updated_at?: string
+          user_id: string
+          vaccines?: string[] | null
+        }
+        Update: {
+          age?: number
+          breed?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          institution_id?: string
+          name?: string
+          updated_at?: string
+          user_id?: string
+          vaccines?: string[] | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "pets_institution_id_fkey"
+            columns: ["institution_id"]
+            isOneToOne: false
+            referencedRelation: "institutions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          id: string
+          name: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
