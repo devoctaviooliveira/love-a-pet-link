@@ -6,7 +6,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "@/contexts/AuthContext";
 import { Header } from "@/components/Header";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
+import Auth from "./pages/Auth";
+import ForgotPassword from "./pages/ForgotPassword";
 import PetsList from "./pages/PetsList";
 import PetDetail from "./pages/PetDetail";
 import PetNew from "./pages/PetNew";
@@ -31,7 +32,7 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
   }
   
   if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/auth" replace />;
   }
   
   return <>{children}</>;
@@ -48,7 +49,9 @@ const App = () => (
             <Header />
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/login" element={<Navigate to="/auth" replace />} />
               <Route path="/pets" element={<PetsList />} />
               <Route path="/pets/:id" element={<PetDetail />} />
               <Route 

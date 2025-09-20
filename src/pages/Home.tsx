@@ -46,7 +46,7 @@ export default function Home() {
                 </Button>
               </Link>
               
-              <Link to="/login">
+              <Link to="/auth">
                 <Button variant="outline" size="lg" className="w-full sm:w-auto px-8 py-6 text-lg">
                   <Heart className="mr-2 h-5 w-5" />
                   Adicionar Pet

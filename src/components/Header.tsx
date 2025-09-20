@@ -68,7 +68,7 @@ export function Header() {
                 <Button 
                   variant="ghost" 
                   size="sm" 
-                  onClick={logout}
+                  onClick={() => logout()}
                   className="text-muted-foreground hover:text-foreground"
                 >
                   <LogOut className="h-4 w-4" />
@@ -76,7 +76,7 @@ export function Header() {
                 </Button>
               </>
             ) : (
-              <Link to="/login">
+              <Link to="/auth">
                 <Button variant="default" size="sm" className="shadow-button">
                   Entrar
                 </Button>
